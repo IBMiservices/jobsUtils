@@ -1,0 +1,52 @@
+[
+  {
+    "extensions": [
+      "GLOBAL"
+    ],
+    "name": "Build all",
+    "command": "OPT=*EVENTF BUILDLIB=&CURLIB /QOpenSys/pkgs/bin/makei build",
+    "environment": "pase",
+    "deployFirst": true,
+    "postDownload": [
+      ".logs",
+      ".evfevent"
+    ]
+  },
+  {
+    "extensions": [
+      "GLOBAL"
+    ],
+    "name": "Build current",
+    "command": "OPT=*EVENTF BUILDLIB=&CURLIB /QOpenSys/pkgs/bin/makei compile -f &BASENAME",
+    "environment": "pase",
+    "deployFirst": true,
+    "postDownload": [
+      ".logs",
+      ".evfevent"
+    ]
+  },
+  {
+    "name": "Build current with Source Orbit 🔨",
+    "command": "so -bf make -s &RELATIVEPATH && /QOpenSys/pkgs/bin/gmake LIBL='&LIBLS' BIN_LIB=&CURLIB OPT=*EVENTF",
+    "environment": "pase",
+    "deployFirst": true,
+    "extensions": [
+      "GLOBAL"
+    ],
+    "postDownload": [
+      ".evfevent/"
+    ]
+  },
+  {
+    "name": "Build entire project with Source Orbit 🔨",
+    "command": "so -bf make && /QOpenSys/pkgs/bin/gmake LIBL='&LIBLS' BIN_LIB=&CURLIB OPT=*EVENTF",
+    "environment": "pase",
+    "deployFirst": true,
+    "extensions": [
+      "GLOBAL"
+    ],
+    "postDownload": [
+      ".evfevent/"
+    ]
+  }
+]
