@@ -1,4 +1,5 @@
 {
   "description": "Utilistaires sur les travaux IBM i",
-  "curlib": "&CURLIB"
+  "curlib": "&CURLIB",
+  "buildCommand": "makei build"
 }
